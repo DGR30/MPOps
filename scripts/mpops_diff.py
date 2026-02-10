@@ -22,7 +22,6 @@ print(f"Baseline accuracy: {baseline_acc}")
 print(f"Current accuracy: {current_acc}")
 print(f"Accuracy delta: {delta}")
 
-# Regression threshold = -2%
 if delta < -0.02:
     print("❌ MPOps regression detected")
     sys.exit(1)
