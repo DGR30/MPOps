@@ -3,12 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/DGR30/MPOps.git'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 script {
@@ -23,7 +17,7 @@ pipeline {
                     docker.image("mpops-demo").inside {
                         sh 'python scripts/train.py'
                         sh 'python scripts/evaluate.py'
-                        sh 'python scripts/diff.py'
+                        sh 'python scripts/mpops_diff.py'
                     }
                 }
             }
